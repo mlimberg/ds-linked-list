@@ -7,9 +7,11 @@ In its basic form, each node in a linked list contains two properties:
 * **Data** - value of the node
 * **Pointer or Link** - a reference to the next node in the list (if one exists)
 
-<center>
+
+
 ![](http://www.cs.usfca.edu/~srollins/courses/cs112-f08/web/notes/linkedlists/ll2.gif)
-</center>
+
+
 
 When looking for a specific value in a linked list, you must traverse the list starting from the head, making comparisons to values stored in the nodes of each pointer. Based on the comparison, you either return the node once it is found, continue traversing, or return null if the node does not exist in the list.
 
