@@ -5,7 +5,7 @@ A **linked list** is a linear data structure where each element is a separate ob
 In its basic form, each node in a linked list contains two properties:
 
 * **Data** - value of the node
-* **Pointer or Link** - a reference to the next node in the list (if one exists)
+* **Pointer or Link** - a reference to the **next** node in the list (if one exists)
 
 
 
@@ -39,7 +39,7 @@ Split into groups of 3 and we'll work through the implementation of a linked lis
 * *TO ARRAY*
   * return an array of all values within the list in order
 * *INCLUDES*
-  * returns true or false if the node exists
+  * returns true or false if the node exists
 * *INDEX*
   * returns the index of the submitted value within the list
   
