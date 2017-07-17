@@ -42,6 +42,8 @@ Split into groups of 3 and we'll work through the implementation of a linked lis
   * returns true or false if the node exists
 * *INDEX*
   * returns the index of the submitted value within the list
-  
-_As well as a few other tests if you want more practice_
+* *INSERT*
+  * place a node in the middle of the list
+* *DISTANCE*
+  * figure out the distance between two items in the list
 
