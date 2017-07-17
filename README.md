@@ -5,45 +5,41 @@ A **linked list** is a linear data structure where each element is a separate ob
 In its basic form, each node in a linked list contains two properties:
 
 * **Data** - value of the node
-* **Pointer or Link** - a reference to the next value in the tree (if one exists)
+* **Pointer or Link** - a reference to the next node in the list (if one exists)
 
+<center>
 ![](http://www.cs.usfca.edu/~srollins/courses/cs112-f08/web/notes/linkedlists/ll2.gif)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/CPT-LinkedLists-addingnode.svg/1280px-CPT-LinkedLists-addingnode.svg.png)
+</center>
 
 When looking for a specific value in a linked list, you must traverse the list starting from the head, making comparisons to values stored in the nodes of each pointer. Based on the comparison, you either return the node once it is found, continue traversing, or return null if the node does not exist in the list.
 
-From a speed perspective, each comparison allows the operations to skip about half of the tree. So each insertion or deletion takes time proportional to the logarithm of the number of items stored in the tree or in Big-O... O(log n). 
+From a speed perspective, linked lists aren't very efficient because we need to start at the head with every operation and traverse potentially through the entire list before knowing whether we have the value we're looking for. However, it's great practice for your current project!
 
 ### Exercise Time!
 
 
-[CLONE THIS](https://github.com/mlimberg/binary-search-tree)
+[CLONE THIS](https://github.com/mlimberg/ds-linked-list)
 
-Split into groups of 3 and we'll work through the implementation of a binary search tree! 
+Split into groups of 3 and we'll work through the implementation of a linked list! 
 
 #### We will work on implementing the following methods:
 
-* *INSERT* 
-  * add a node to the tree in the correct position based on the root node
+* *PUSH* 
+  * add a node to the end of the list
+* *POP*
+  * remove the last node in the list
 * *FIND*
-  * find a specific value within the tree
-* *MIN*
-  * get the lowest value in the tree
-* *MAX*
-  * get the highest value in the tree
+  * find a node within the list
+* *LAST NODE*
+  * return the last node in the list
 * *DELETE*
-  * remove a node from the tree
-  * what happens to any child nodes???_
+  * remove a specific value from the list
+* *TO ARRAY*
+  * return an array of all values within the list in order
+* *INCLUDES*
+  * returns true or false if the node exists
+* *INDEX*
+  * returns the index of the submitted value within the list
+  
+_As well as a few other tests if you want more practice_
 
- #### If time allows, others to implement include:
- 
- * *toArray*
-    * return an array of all nodes in the tree in the order of `[root, left nodes, right nodes]`
- * *SORT*
-    * return an array of all nodes in the tree sorted from lowest to highest
- * *COUNT*
-    * get the total count of nodes in the tree
- * *SUM*
-    * get the sum of all nodes in the tree
- * *getLevel*
-    * get the level of the node passed in, in relation to the root
