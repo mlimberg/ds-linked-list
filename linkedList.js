@@ -67,13 +67,23 @@ export default class List {
   }
 
   delete(data) {
-    let nodeToDelete = this.find(data)
-    console.log('delete ', nodeToDelete);
-    if (nodeToDelete) {
-      if (nodeToDelete.data = this.head.data) {
-        this.head = null
-      }
+    if (!this.head) { return null }
 
+    let nodeToDelete = this.find(data)
+    let currentNode = null
+
+    if (nodeToDelete) {
+      if (nodeToDelete.data === this.head.data) {
+        this.head = this.head.next ? this.head.next : null
+      } else {
+        currentNode = this.head
+
+        while (currentNode.next.data !== data) {
+          currentNode = currentNode.next
+        }
+
+        currentNode.next = nodeToDelete.next
+      }
       this.length--
     }
 

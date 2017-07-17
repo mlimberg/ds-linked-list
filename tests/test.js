@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import Node from '../node'
 import List from '../linkedList.js'
 
-describe('Node', () => {
+describe('NODE', () => {
   let node;
 
   beforeEach(() => {
@@ -10,50 +10,50 @@ describe('Node', () => {
 
   })
 
-  it('should be a thing', () => {
+  it.skip('should be a thing', () => {
     expect(node).to.exist
   })
 
-  it('should default next to null', () => {
+  it.skip('should default next to null', () => {
     expect(node.next).to.equal(null)
   })
 
 })
 
-describe('LinkedList', () => {
+describe('LINKED LIST', () => {
   let list;
 
   beforeEach(() => {
     list = new List();
   });
 
-  it('should start with zero elements', () => {
+  it.skip('should start with zero elements', () => {
     expect(list.length).to.eq(0);
   });
 
-  it('should set its default head to null', () => {
+  it.skip('should set its default head to null', () => {
     expect(list.head).to.eq(null);
   });
 
   describe('PUSH', () => {
-    it('should allow push of a single element to a list', () => {
+    it.skip('should allow push of a single element to a list', () => {
       list.push('pizza');
       expect(list.head.data).to.eq('pizza');
     });
 
-    it('should increment the length of the list', () => {
+    it.skip('should increment the length of the list', () => {
       list.push('pizza');
       expect(list.length).to.eq(1);
     });
 
-    it('should increment the length count', () => {
+    it.skip('should increment the length count', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
       expect(list.length).to.eq(3);
     });
 
-    it('should assign the head to the first element pushed', () => {
+    it.skip('should assign the head to the first element pushed', () => {
       expect(list.head).to.eq(null);
       list.push('pizza');
       expect(list.head.data).to.eq('pizza');
@@ -61,13 +61,13 @@ describe('LinkedList', () => {
       expect(list.head.data).to.eq('pizza');
     });
 
-    it('should attach the second element to the first element', () => {
+    it.skip('should attach the second element to the first element', () => {
       list.push('pizza');
       list.push('stromboli');
       expect(list.head.next.data).to.eq('stromboli');
     });
 
-    it('should attach nexts in sequential order', () => {
+    it.skip('should attach nexts in sequential order', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
@@ -80,16 +80,16 @@ describe('LinkedList', () => {
   });
 
   describe('POP', () => {
-    it('should return null', () => {
+    it.skip('should return null', () => {
       expect(list.pop()).to.eq(null);
     });
 
-    it('should not decrement the length if there are no nodes', () => {
+    it.skip('should not decrement the length if there are no nodes', () => {
       list.pop()
       expect(list.length).to.eq(0);
     });
 
-    it('should change the length', () => {
+    it.skip('should change the length', () => {
       list.push('hello');
 
       expect(list.length).to.eq(1)
@@ -99,21 +99,21 @@ describe('LinkedList', () => {
       expect(list.length).to.eq(0);
     });
 
-    it('should set the list head to null', () => {
+    it.skip('should set the list head to null', () => {
       list.push('hello');
       let result = list.pop();
 
       expect(list.head).to.eq(null);
     });
 
-    it('should return the last element', () => {
+    it.skip('should return the last element', () => {
       list.push('hello');
       const result = list.pop();
 
       expect(result.data).to.eq('hello');
     });
 
-      it('should return the last element from the list', () => {
+      it.skip('should return the last element from the list', () => {
         list.push("hello");
         list.push("new");
         list.push("world");
@@ -123,7 +123,7 @@ describe('LinkedList', () => {
         expect(output.data).to.eq('today');
       });
 
-      it('should remove the last element from the list', () => {
+      it.skip('should remove the last element from the list', () => {
         list.push("hello");
         list.push("world");
         list.push("today");
@@ -144,74 +144,31 @@ describe('LinkedList', () => {
       });
   });
 
-  describe('DELETE', () => {
-    it('deletes a solo node', () => {
+  describe('FIND', () => {
+    beforeEach(() => {
+      list.push('oh');
       list.push('hello');
-      list.delete('hello');
-      expect(list.length).to.eq(0);
-      expect(list.head).to.eq(null);
+      list.push('world');
     });
 
-    it('does not perform a delete when a node does not match', () => {
-      list.push('hello');
-      list.delete('goodbye');
-      expect(list.length).to.eq(1);
-      expect(list.head.data).to.eq('hello');
+    it.skip('should return the node if it is found', () => {
+      const result = list.find('hello');
+
+      expect(result.data).to.eq('hello');
+      expect(result.next.data).to.eq('world');
     });
 
-    describe('DELETE PT. 2', () => {
-      beforeEach(() => {
-        list.push('hello');
-        list.push('darkness');
-        list.push('my');
-        list.push('old');
-        list.push('friend');
-      });
+    it.skip('should return true the node if node in list', () => {
+      const result = list.find('world');
 
-      it('changes the list length', () => {
-        expect(list.head.next.data).to.eq('darkness');
-        expect(list.length).to.eq(5);
-        list.delete('friend');
-        expect(list.length).to.eq(4);
-        list.delete('my');
-        expect(list.length).to.eq(3);
-        list.delete('happy');
-        expect(list.length).to.eq(3);
-      });
-
-      it.skip('resets the next property on the node before the deleted node', () => {
-        expect(list.head.next.data).to.eq('darkness');
-        list.delete('darkness');
-        expect(list.head.next.data).to.eq('my');
-      });
-
-      it.skip('resets the list.head if deleting the first node', () => {
-        expect(list.head.data).to.eq('hello');
-        list.delete('hello');
-        expect(list.head.data).to.eq('darkness');
-      });
-
-    })
-
-
-  });
-
-  describe('TO ARRAY', () => {
-    it.skip('converts to an array', () => {
-      expect(list.toArray()).to.deep.equal([]);
+      expect(result.data).to.eq('world');
+      expect(result.next).to.eq(null);
     });
 
-    context('when there are several elements', () => {
-      beforeEach(() => {
-        list.push('The');
-        list.push('rain');
-        list.push('in');
-        list.push('Spain');
-      });
+    it.skip('should return null if node is missing', () => {
+      const result = list.find("nope");
 
-      it.skip('can convert to an array', () => {
-        expect(list.toArray()).to.deep.equal(['The', 'rain', 'in', 'Spain']);
-      });
+      expect(result).to.eq(null);
     });
   });
 
@@ -246,6 +203,82 @@ describe('LinkedList', () => {
     });
   });
 
+  describe('DELETE', () => {
+    it.skip('deletes a solo node', () => {
+      list.push('hello');
+      list.delete('hello');
+      expect(list.length).to.eq(0);
+      expect(list.head).to.eq(null);
+    });
+
+    it.skip('does not perform a delete when a node does not match', () => {
+      list.push('hello');
+      list.delete('goodbye');
+      expect(list.length).to.eq(1);
+      expect(list.head.data).to.eq('hello');
+    });
+
+    context('with more elements', () => {
+      beforeEach(() => {
+        list.push('hello');
+        list.push('darkness');
+        list.push('my');
+        list.push('old');
+        list.push('friend');
+      });
+
+      it.skip('changes the list length', () => {
+        expect(list.head.next.data).to.eq('darkness');
+        expect(list.length).to.eq(5);
+
+        list.delete('friend');
+        expect(list.length).to.eq(4);
+        list.delete('my');
+        expect(list.length).to.eq(3);
+        list.delete('happy');
+        expect(list.length).to.eq(3);
+      });
+
+      it.skip('resets the next property on the node before the deleted node', () => {
+        expect(list.head.next.data).to.eq('darkness');
+
+        list.delete('darkness');
+
+        expect(list.head.next.data).to.eq('my');
+
+        list.delete('my')
+
+        expect(list.head.next.data).to.eq('old')
+      });
+
+      it.skip('resets the list.head if deleting the first node', () => {
+        expect(list.head.data).to.eq('hello');
+        list.delete('hello');
+        expect(list.head.data).to.eq('darkness');
+      });
+
+    })
+  });
+
+  describe('TO ARRAY', () => {
+    it.skip('converts to an array', () => {
+      expect(list.toArray()).to.deep.equal([]);
+    });
+
+    context('when there are several elements', () => {
+      beforeEach(() => {
+        list.push('The');
+        list.push('rain');
+        list.push('in');
+        list.push('Spain');
+      });
+
+      it.skip('can convert to an array', () => {
+        expect(list.toArray()).to.deep.equal(['The', 'rain', 'in', 'Spain']);
+      });
+    });
+  });
+
   describe('INCLUDES', () => {
     beforeEach(() => {
       list.push('The');
@@ -260,34 +293,6 @@ describe('LinkedList', () => {
 
     it.skip('should return false if node is not in list', () => {
       expect(list.include("nope")).to.eq(false);
-    });
-  });
-
-  describe('FIND', () => {
-    beforeEach(() => {
-      list.push('oh');
-      list.push('hello');
-      list.push('world');
-    });
-
-    it.skip('should return the node if it is found', () => {
-      const result = list.find('hello');
-
-      expect(result.data).to.eq('hello');
-      expect(result.next.data).to.eq('world');
-    });
-
-    it.skip('should return true the node if node in list', () => {
-      const result = list.find('world');
-
-      expect(result.data).to.eq('world');
-      expect(result.next).to.eq(null);
-    });
-
-    it('should return null if node is missing', () => {
-      const result = list.find("nope");
-
-      expect(result).to.eq(null);
     });
   });
 
