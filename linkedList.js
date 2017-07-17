@@ -106,4 +106,49 @@ export default class List {
     return result
   }
 
+  toArray() {
+    const result = []
+    let currentNode
+
+    if (!this.head) { return result }
+    if (!this.head.next) {
+      result.push(this.head.data)
+      return result
+    } else {
+      currentNode = this.head
+    }
+
+
+    while (currentNode) {
+      result.push(currentNode.data)
+      currentNode = currentNode.next
+    }
+
+    return result
+  }
+
+  include(data) {
+    const node = this.find(data)
+
+    return node ? true : false
+  }
+
+  index(data) {
+    if (!this.find(data)) { return null }
+    let index = 0;
+    let currentNode = this.head || null
+
+    while (currentNode) {
+      if (currentNode.data === data) {
+        currentNode = null
+      } else {
+        index++
+        currentNode = currentNode.next
+        console.log(currentNode);
+      }
+    }
+
+    return index
+  }
+
 }

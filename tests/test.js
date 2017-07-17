@@ -10,11 +10,11 @@ describe('NODE', () => {
 
   })
 
-  it.skip('should be a thing', () => {
+  it('should be a thing', () => {
     expect(node).to.exist
   })
 
-  it.skip('should default next to null', () => {
+  it('should default next to null', () => {
     expect(node.next).to.equal(null)
   })
 
@@ -27,33 +27,33 @@ describe('LINKED LIST', () => {
     list = new List();
   });
 
-  it.skip('should start with zero elements', () => {
+  it('should start with zero elements', () => {
     expect(list.length).to.eq(0);
   });
 
-  it.skip('should set its default head to null', () => {
+  it('should set its default head to null', () => {
     expect(list.head).to.eq(null);
   });
 
   describe('PUSH', () => {
-    it.skip('should allow push of a single element to a list', () => {
+    it('should allow push of a single element to a list', () => {
       list.push('pizza');
       expect(list.head.data).to.eq('pizza');
     });
 
-    it.skip('should increment the length of the list', () => {
+    it('should increment the length of the list', () => {
       list.push('pizza');
       expect(list.length).to.eq(1);
     });
 
-    it.skip('should increment the length count', () => {
+    it('should increment the length count', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
       expect(list.length).to.eq(3);
     });
 
-    it.skip('should assign the head to the first element pushed', () => {
+    it('should assign the head to the first element pushed', () => {
       expect(list.head).to.eq(null);
       list.push('pizza');
       expect(list.head.data).to.eq('pizza');
@@ -61,13 +61,13 @@ describe('LINKED LIST', () => {
       expect(list.head.data).to.eq('pizza');
     });
 
-    it.skip('should attach the second element to the first element', () => {
+    it('should attach the second element to the first element', () => {
       list.push('pizza');
       list.push('stromboli');
       expect(list.head.next.data).to.eq('stromboli');
     });
 
-    it.skip('should attach nexts in sequential order', () => {
+    it('should attach nexts in sequential order', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
@@ -80,16 +80,16 @@ describe('LINKED LIST', () => {
   });
 
   describe('POP', () => {
-    it.skip('should return null', () => {
+    it('should return null', () => {
       expect(list.pop()).to.eq(null);
     });
 
-    it.skip('should not decrement the length if there are no nodes', () => {
+    it('should not decrement the length if there are no nodes', () => {
       list.pop()
       expect(list.length).to.eq(0);
     });
 
-    it.skip('should change the length', () => {
+    it('should change the length', () => {
       list.push('hello');
 
       expect(list.length).to.eq(1)
@@ -99,21 +99,21 @@ describe('LINKED LIST', () => {
       expect(list.length).to.eq(0);
     });
 
-    it.skip('should set the list head to null', () => {
+    it('should set the list head to null', () => {
       list.push('hello');
       let result = list.pop();
 
       expect(list.head).to.eq(null);
     });
 
-    it.skip('should return the last element', () => {
+    it('should return the last element', () => {
       list.push('hello');
       const result = list.pop();
 
       expect(result.data).to.eq('hello');
     });
 
-      it.skip('should return the last element from the list', () => {
+      it('should return the last element from the list', () => {
         list.push("hello");
         list.push("new");
         list.push("world");
@@ -123,7 +123,7 @@ describe('LINKED LIST', () => {
         expect(output.data).to.eq('today');
       });
 
-      it.skip('should remove the last element from the list', () => {
+      it('should remove the last element from the list', () => {
         list.push("hello");
         list.push("world");
         list.push("today");
@@ -151,21 +151,21 @@ describe('LINKED LIST', () => {
       list.push('world');
     });
 
-    it.skip('should return the node if it is found', () => {
+    it('should return the node if it is found', () => {
       const result = list.find('hello');
 
       expect(result.data).to.eq('hello');
       expect(result.next.data).to.eq('world');
     });
 
-    it.skip('should return true the node if node in list', () => {
+    it('should return true the node if node in list', () => {
       const result = list.find('world');
 
       expect(result.data).to.eq('world');
       expect(result.next).to.eq(null);
     });
 
-    it.skip('should return null if node is missing', () => {
+    it('should return null if node is missing', () => {
       const result = list.find("nope");
 
       expect(result).to.eq(null);
@@ -181,7 +181,7 @@ describe('LINKED LIST', () => {
         list.push('Spain');
       });
 
-      it.skip('finds the last node', () => {
+      it('finds the last node', () => {
         expect(list.getLast().data).to.eq('Spain');
       });
     });
@@ -191,27 +191,27 @@ describe('LINKED LIST', () => {
         list.push('Ahoy!');
       });
 
-      it.skip('finds the only node', () => {
+      it('finds the only node', () => {
         expect(list.getLast().data).to.eq('Ahoy!');
       });
     });
 
     context('with no nodes', () => {
-      it.skip('returns null', () => {
+      it('returns null', () => {
         expect(list.getLast()).to.eq(null);
       });
     });
   });
 
   describe('DELETE', () => {
-    it.skip('deletes a solo node', () => {
+    it('deletes a solo node', () => {
       list.push('hello');
       list.delete('hello');
       expect(list.length).to.eq(0);
       expect(list.head).to.eq(null);
     });
 
-    it.skip('does not perform a delete when a node does not match', () => {
+    it('does not perform a delete when a node does not match', () => {
       list.push('hello');
       list.delete('goodbye');
       expect(list.length).to.eq(1);
@@ -227,7 +227,7 @@ describe('LINKED LIST', () => {
         list.push('friend');
       });
 
-      it.skip('changes the list length', () => {
+      it('changes the list length', () => {
         expect(list.head.next.data).to.eq('darkness');
         expect(list.length).to.eq(5);
 
@@ -239,7 +239,7 @@ describe('LINKED LIST', () => {
         expect(list.length).to.eq(3);
       });
 
-      it.skip('resets the next property on the node before the deleted node', () => {
+      it('resets the next property on the node before the deleted node', () => {
         expect(list.head.next.data).to.eq('darkness');
 
         list.delete('darkness');
@@ -251,7 +251,7 @@ describe('LINKED LIST', () => {
         expect(list.head.next.data).to.eq('old')
       });
 
-      it.skip('resets the list.head if deleting the first node', () => {
+      it('resets the list.head if deleting the first node', () => {
         expect(list.head.data).to.eq('hello');
         list.delete('hello');
         expect(list.head.data).to.eq('darkness');
@@ -261,7 +261,7 @@ describe('LINKED LIST', () => {
   });
 
   describe('TO ARRAY', () => {
-    it.skip('converts to an array', () => {
+    it('converts to an array', () => {
       expect(list.toArray()).to.deep.equal([]);
     });
 
@@ -273,7 +273,7 @@ describe('LINKED LIST', () => {
         list.push('Spain');
       });
 
-      it.skip('can convert to an array', () => {
+      it('can convert to an array', () => {
         expect(list.toArray()).to.deep.equal(['The', 'rain', 'in', 'Spain']);
       });
     });
@@ -287,11 +287,11 @@ describe('LINKED LIST', () => {
       list.push('Spain');
     });
 
-    it.skip('should return true if node is in list', () => {
+    it('should return true if node is in list', () => {
       expect(list.include("rain")).to.eq(true);
     });
 
-    it.skip('should return false if node is not in list', () => {
+    it('should return false if node is not in list', () => {
       expect(list.include("nope")).to.eq(false);
     });
   });
@@ -303,7 +303,7 @@ describe('LINKED LIST', () => {
       list.push('world');
     });
 
-    it.skip('should return expected indexes', () => {
+    it('should return expected indexes', () => {
       expect(list.index('oh')).to.eq(0);
       expect(list.index('world')).to.eq(2);
       expect(list.index('nope')).to.eq(null);
@@ -333,7 +333,7 @@ describe('LINKED LIST', () => {
 
     it.skip('should insert nodes after other nodes', () => {
       expect(list.length).to.eq(2);
-      list.insertAgfter('dark', 'and');
+      list.insertAfter('dark', 'and');
       list.insertAfter('stormy', 'night');
       expect(list.length).to.eq(4);
       expect(list.toArray()).to.deep.equal(['dark', 'and', 'stormy', 'night']);
